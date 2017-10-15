@@ -15,8 +15,14 @@ class BlogsController < ApplicationController
   end
   
   def create
-    Blog.create(blogs_params)
-    redirect_to blogs_path
+    @blog = Blog.new(blogs_params)
+    @blog.user_id = current_user.id
+    if @blog.save
+      redirect_to blogs_path, notice: "ブログを作成しました！"
+      NoticeMailer.sendmail_blog(@blog).deliver
+    else
+      render 'new'
+    end
   end
   
   def edit
@@ -36,16 +42,6 @@ class BlogsController < ApplicationController
     # @blog = Blog.find(params[:id])
     @blog.destroy
     redirect_to blogs_path, notice: "ブログを削除しました！"
-  end
-  
-  def create
-    @blog = Blog.new(blogs_params)
-    @blog.user_id = current_user.id
-    if @blog.save
-      redirect_to blogs_path, notice: "ブログを作成しました！"
-    else
-      render 'new'
-    end
   end
   
   def confirm

@@ -4,6 +4,8 @@ class BlogsController < ApplicationController
   
   def index
     @blogs = Blog.all
+    # ブレークポイント
+    # binding.pry
   end
   
   def new

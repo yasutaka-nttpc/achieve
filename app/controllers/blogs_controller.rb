@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
     # ブレークポイント
     # binding.pry
+    # raise
   end
   
   def new

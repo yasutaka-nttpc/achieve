@@ -4,12 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
          
-  has_many :blogs
+  has_many :blogs, dependent: :destroy
+  # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
-mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
+  mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)

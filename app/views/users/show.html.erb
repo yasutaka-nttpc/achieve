@@ -1,24 +1,21 @@
 <div class="container">
   <div class="container-child col-md-12 col-sm-12 col-xs-12" >
     <h2>フォロー一覧</h2>
+    <div class="wrapper col-md-2 col-sm-4 col-xs-6">
       <% @followeds.each do |followed| %>
-      <div class="wrapper col-md-2 col-sm-4 col-xs-6">
-          <%= profile_img(followed) %>
-          <%= followed.name %>
-        </div>
-        <%= render 'follow_form', user: followed %>
+        <%= profile_img(followed) %>
+        <%= followed.name %>
       <% end %>
+    </div>
   </div>
   <br/>
   <div class="container-child col-md-12 col-sm-12 col-xs-12" >
     <h2>フォロワー一覧</h2>
-    <% @followers.each do |follower| %>
-      <div class="wrapper col-md-2 col-sm-4 col-xs-6">
+    <div class="wrapper col-md-2 col-sm-4 col-xs-6">
+      <% @followers.each do |follower| %>
         <%= profile_img(follower) %>
         <%= follower.name %>
-      </div>
-      <%= render 'follow_form', user: follower %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-
 </div>

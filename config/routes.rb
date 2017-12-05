@@ -28,7 +28,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :relationships, only: [:create, :destroy]  
+  resources :relationships, only: [:create, :destroy] 
+
+  resources :conversations do
+    resources :messages
+  end
 
   root 'top#index'
 

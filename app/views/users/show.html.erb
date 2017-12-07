@@ -2,7 +2,9 @@
 <h2>フォロー一覧</h2>
 <% @followeds.each do |followed| %>
   <div class="row">
-    <%= profile_img(followed) %>
+    <div class="profile-img">
+      <%= profile_img(followed) %>
+    </div>
   </div>
   <div class="row">
     <%= followed.name %>
@@ -17,7 +19,9 @@
 <h2>フォロワー一覧</h2>
 <% @followers.each do |follower| %>
   <div class="row">
-    <%= profile_img(follower) %>
+    <div class="profile-img">
+      <%= profile_img(follower) %>
+    </div>
   </div>
   <div class="row">
     <%= follower.name %>

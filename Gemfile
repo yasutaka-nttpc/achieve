@@ -60,8 +60,9 @@ gem 'mini_magick'
 
 group :development do
   gem 'letter_opener_web'
-  gem 'dotenv-rails'
 end
+
+gem 'therubyracer', platforms: :ruby
 
 group :development, :test do
     gem 'pry-rails'
@@ -79,5 +80,3 @@ gem 'fog'
 
 gem 'dotenv-rails'
 gem 'unicorn'
-
-gem 'therubyracer', platforms: :ruby

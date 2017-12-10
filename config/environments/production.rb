@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # action mailer setting
-  config.action_mailer.default_url_options = { host: 'http://13.230.182.48/' }
+  config.action_mailer.default_url_options = { host: '13.230.182.48' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
